@@ -1,6 +1,7 @@
 const initialBox = document.querySelector(".initial-box");
 const startBtn = document.querySelector(".set-date");
 const setupBox = document.querySelector(".setup-box");
+const calendarPicker = document.querySelector(".calendar-picker");
 let year = "";
 let month = "";
 let day = "";
@@ -93,11 +94,35 @@ const daysOfWeek = () => {
   header.appendChild(ul);
 };
 
+const closeCalendarPicker = e => {
+  const clickInside = setupBox.contains(e.target);
+  if (!clickInside && !e.target.classList.contains("set-date")) {
+    initialBox.classList.remove("hidden");
+    setupBox.classList.remove("slide-in");
+  } else if (e.target.dataset.day) {
+    day = parseInt(e.target.dataset.day);
+    showDays(year, month, day);
+
+    initialBox.classList.remove("hidden");
+    setupBox.classList.toggle("slide-in");
+
+    const div = document.createElement("div");
+    div.className = "result";
+    initialBox.appendChild(div);
+    const result = document.querySelector(".result");
+    result.innerHTML = "";
+    const h1 = document.createElement("h1");
+    h1.innerText = `${day}.${month + 1}.${year}`;
+    result.appendChild(h1);
+  }
+};
+
 const calendar = () => {
   initialBox.classList.add("hidden");
   setupBox.classList.add("slide-in");
   setDate();
   daysOfWeek();
+  document.addEventListener("click", closeCalendarPicker);
 };
 
 startBtn.addEventListener("click", calendar);

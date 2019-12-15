@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.wrapper-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 500px;
+  height: 80vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+}
+.container-calendar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  height: 70%;
+  min-height: 30%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 40px;
+  padding: 20px 40px;
+}
+
+h4 {
+  text-transform: uppercase;
+  text-align: center;
+}
+.initial-box {
+  margin-top: 50%;
+}
+.initial-box.hidden {
+  display: none;
+}
+.set-date {
+  display: block;
+  cursor: pointer;
+  margin: 20px auto;
+  width: 100px;
+  height: 100px;
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(129, 203, 232, 1) 0%,
+    rgba(241, 81, 189, 1) 100%
+  );
+  background: linear-gradient(
+    45deg,
+    rgba(129, 203, 232, 1) 0%,
+    rgba(241, 81, 189, 1) 100%
+  );
+  -webkit-mask: url(calendar-icon.svg);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  animation: pulse 3s infinite linear;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+}
+.result h1 {
+  letter-spacing: 1px;
+}
+.setup-box {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  margin-top: 100px;
+  transform: translateX(-120%);
+  position: absolute;
+  transition: all 1s;
+}
+
+.slide-in {
+  transform: translateX(0);
+}
+
+.panel {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.header ul {
+  display: flex;
+  list-style: none;
+  background-color: rgba(129, 203, 232, 0.2);
+  border-radius: 10px;
+}
+
+.header ul li {
+  padding: 5px;
+  width: 40px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.days ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.days ul li {
+  display: block;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.days ul li.active-day {
+  border-radius: 50%;
+  background-color: rgba(129, 203, 232, 0.2);
+  color: white;
+}

@@ -9,12 +9,9 @@ body {
 }
 
 .wrapper-bg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
-  width: 500px;
-  height: 80vh;
+  width: 95%;
+  height: 90vh;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -25,40 +22,43 @@ body {
 }
 .container-calendar {
   position: relative;
+  width: 90%;
+  height: 85%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
-  height: 70%;
-  min-height: 30%;
+  justify-content: center;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 40px;
-  padding: 20px 40px;
+  padding: 10px 30px;
   overflow: hidden;
 }
 
 h4 {
   text-transform: uppercase;
   text-align: center;
+  margin-bottom: 20px;
 }
-.initial-box {
-  margin-top: 50%;
-}
+
 .initial-box.hidden {
   display: none;
 }
+
 .set-date {
   display: block;
   cursor: pointer;
-  margin: 20px auto;
-  width: 100px;
-  height: 100px;
-  background: -webkit-linear-gradient(
+  margin: 40px auto;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(
     45deg,
     rgba(129, 203, 232, 1) 0%,
     rgba(241, 81, 189, 1) 100%
   );
-  background: linear-gradient(
+  background: -webkit-linear-gradient(
     45deg,
     rgba(129, 203, 232, 1) 0%,
     rgba(241, 81, 189, 1) 100%
@@ -83,42 +83,51 @@ h4 {
     transform: scale(0.9);
   }
 }
+
 .result h1 {
-  letter-spacing: 1px;
+  text-align: center;
+  letter-spacing: 2px;
 }
+
 .setup-box {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  width: 280px;
-  margin-top: 100px;
-  transform: translateX(-120%);
-  position: absolute;
+  justify-content: center;
+  width: 245px;
+  transform: translateX(-130%);
+  opacity: 0;
   transition: all 1s;
 }
 
 .slide-in {
   transform: translateX(0);
+  opacity: 1;
 }
 
 .panel {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .header ul {
   display: flex;
   list-style: none;
-  background-color: rgba(129, 203, 232, 0.2);
+  width: 100%;
+  background-color: rgba(129, 203, 232, 0.4);
   border-radius: 10px;
 }
 
 .header ul li {
-  padding: 5px;
-  width: 40px;
+  padding: 7px;
+  width: 35px;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
+}
+
+.calendar-picker {
+  height: 250px;
 }
 
 .days ul {
@@ -131,9 +140,9 @@ h4 {
   display: block;
   cursor: pointer;
   font-size: 0.8rem;
-  padding: 5px;
-  width: 40px;
-  height: 40px;
+  padding: 7px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,6 +150,106 @@ h4 {
 
 .days ul li.active-day {
   border-radius: 50%;
-  background-color: rgba(129, 203, 232, 0.2);
-  color: white;
+  background-color: rgba(129, 203, 232, 0.4);
+  color: rgb(241, 81, 189);
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .wrapper-bg {
+    width: 70%;
+    height: 80vh;
+  }
+  .container-calendar {
+    width: 75%;
+    height: 80%;
+    padding: 10px 30px;
+  }
+
+  .setup-box {
+    width: 280px;
+  }
+  .header ul li {
+    padding: 5px;
+    width: 40px;
+    font-size: 0.8rem;
+  }
+
+  .days ul li {
+    font-size: 1rem;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+  .wrapper-bg {
+    width: 60%;
+    height: 95vh;
+  }
+  .container-calendar {
+    width: 80%;
+    height: 95%;
+  }
+  .result h1 {
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+  .setup-box {
+    width: 210px;
+  }
+  .panel {
+    margin: 0 0 15px 0;
+  }
+  .panel .date {
+    font-size: 0.9rem;
+  }
+
+  .setup-box h4 {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+  }
+  .header ul li {
+    padding: 5px;
+    width: 30px;
+    font-size: 0.5rem;
+  }
+  .calendar-picker {
+    height: 210px;
+  }
+
+  .days ul li {
+    font-size: 0.7rem;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper-bg {
+    width: 580px;
+    height: 70vh;
+  }
+  .container-calendar {
+    width: 65%;
+    height: 80%;
+  }
+
+  .setup-box {
+    width: 280px;
+  }
+  .header ul li {
+    padding: 5px;
+    width: 40px;
+    font-size: 0.8rem;
+  }
+
+  .days ul li {
+    font-size: 1rem;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+  }
 }

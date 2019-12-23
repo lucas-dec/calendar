@@ -5,14 +5,14 @@ const calendarPicker = document.querySelector(".calendar-picker");
 let year = "";
 let month = "";
 let day = "";
-const btnChangeMonth = document.querySelectorAll(".panel button");
+const btnChangeMonth = document.querySelectorAll(".panel img.btn");
 const days = document.querySelector(".days");
 
 const showDays = (year, month, day) => {
   const numberOfDays = new Date(year, month + 1, 0).getDate();
   let startDay = new Date(year, month, 1).getDay();
   if (startDay === 0) startDay = 7;
-
+  let dayOfTheWeek = startDay;
   days.innerHTML = "";
 
   const ul = document.createElement("ul");
@@ -22,11 +22,17 @@ const showDays = (year, month, day) => {
     ul.appendChild(li);
   }
   for (let i = 1; i <= numberOfDays; i++) {
+    if (dayOfTheWeek === 8) dayOfTheWeek = 1;
+
     const li = document.createElement("li");
     li.innerText = i;
     li.dataset.day = i;
+    li.dataset.dayOfTheWeek = dayOfTheWeek;
     if (i === day) li.classList.add("active-day");
+    if (dayOfTheWeek === 6 || dayOfTheWeek === 7) li.classList.add("weekend");
     ul.appendChild(li);
+
+    dayOfTheWeek++;
   }
   days.appendChild(ul);
 };

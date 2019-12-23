@@ -108,7 +108,19 @@ h4 {
 .panel {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 20px 0;
+}
+
+.panel img.btn {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.panel img.btn:hover {
+  transform: scale(1.2);
 }
 
 .header ul {
@@ -146,6 +158,10 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.days ul li.weekend {
+  color: rgba(241, 81, 189, 0.5);
 }
 
 .days ul li.active-day {
@@ -230,7 +246,7 @@ h4 {
 @media (min-width: 1024px) {
   .wrapper-bg {
     width: 580px;
-    height: 70vh;
+    height: 85vh;
   }
   .container-calendar {
     width: 65%;

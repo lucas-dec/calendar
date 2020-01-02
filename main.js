@@ -2,15 +2,16 @@ const initialBox = document.querySelector(".initial-box");
 const startBtn = document.querySelector(".set-date");
 const setupBox = document.querySelector(".setup-box");
 const calendarPicker = document.querySelector(".calendar-picker");
-let year = "";
-let month = "";
-let day = "";
+let year = "",
+  month = "",
+  day = "";
 const btnChangeMonth = document.querySelectorAll(".panel img.btn");
 const days = document.querySelector(".days");
 
 const showDays = (year, month, day) => {
   const numberOfDays = new Date(year, month + 1, 0).getDate();
   let startDay = new Date(year, month, 1).getDay();
+
   if (startDay === 0) startDay = 7;
   let dayOfTheWeek = startDay;
   days.innerHTML = "";
@@ -73,7 +74,7 @@ const changeMonth = e => {
 };
 
 const setDate = () => {
-  if (year == "") {
+  if (!year) {
     const currentDate = new Date();
     year = currentDate.getFullYear();
     month = currentDate.getMonth();
@@ -81,7 +82,6 @@ const setDate = () => {
   }
 
   btnChangeMonth.forEach(btn => btn.addEventListener("click", changeMonth));
-
   showDate(year, month);
   showDays(year, month, day);
 };

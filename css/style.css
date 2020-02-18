@@ -15,7 +15,7 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-image: url(bg.jpg);
+  background-image: url(../images/bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 25px;
@@ -63,7 +63,7 @@ h4 {
     rgba(129, 203, 232, 1) 0%,
     rgba(241, 81, 189, 1) 100%
   );
-  -webkit-mask: url(calendar-icon.svg);
+  -webkit-mask: url(../images/calendar-icon.svg);
   -webkit-mask-position: center;
   -webkit-mask-repeat: no-repeat;
   animation: pulse 3s infinite linear;
